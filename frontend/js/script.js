@@ -272,6 +272,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     <i class="fas fa-times"></i>
                 </button>
             </div>
+            <div class="notification-progress"></div>
         `;
 
     // Add styles
@@ -289,6 +290,7 @@ document.addEventListener("DOMContentLoaded", function () {
             animation: slideInRight 0.5s ease-out;
             border-left: 4px solid;
             color: white;
+            overflow: hidden;
         `;
 
     // Set colors based on type
@@ -319,16 +321,45 @@ document.addEventListener("DOMContentLoaded", function () {
     let autoCloseTime;
     switch (type) {
       case "success":
-        autoCloseTime = 8000; // 8 segundos para mensajes de éxito
+        autoCloseTime = 15000; // 15 segundos para mensajes de éxito
         break;
       case "error":
-        autoCloseTime = 10000; // 10 segundos para errores
+        autoCloseTime = 20000; // 20 segundos para errores
         break;
       case "info":
       default:
-        autoCloseTime = 4000; // 4 segundos para información
+        autoCloseTime = 8000; // 8 segundos para información
         break;
     }
+
+    // Crear barra de progreso
+    const progressBar = notification.querySelector(".notification-progress");
+    progressBar.style.cssText = `
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 3px;
+      background: rgba(255, 255, 255, 0.3);
+      width: 100%;
+      border-radius: 0 0 0.75rem 0.75rem;
+      overflow: hidden;
+    `;
+
+    // Animar la barra de progreso
+    const progressFill = document.createElement("div");
+    progressFill.style.cssText = `
+      height: 100%;
+      background: rgba(255, 255, 255, 0.8);
+      width: 100%;
+      transform: translateX(-100%);
+      transition: transform ${autoCloseTime}ms linear;
+    `;
+    progressBar.appendChild(progressFill);
+
+    // Iniciar animación de la barra
+    setTimeout(() => {
+      progressFill.style.transform = "translateX(0)";
+    }, 100);
 
     setTimeout(() => {
       if (notification.parentNode) {
