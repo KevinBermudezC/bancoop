@@ -1,4 +1,4 @@
-Create table usuario(
+Create table tab_usuario(
     cuenta int primary key,
     tipo varchar(50),
     clave varchar(50),

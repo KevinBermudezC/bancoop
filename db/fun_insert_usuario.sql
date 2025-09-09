@@ -1,23 +1,22 @@
-create function insert_usuario(
-    p.cuenta tab_usuario.cuenta%type,
-    p.tipo tab_usuario.tipo%type,
-    p.clave tab_usuario.clave%type,
-    p.dinero tab_usuario.dinero%type,
-    p.nombre tab_usuario.nombre%type,
-    p.apellido tab_usuario.apellido%type
+CREATE OR REPLACE FUNCTION fun_insert_usuario(
+    p_cuenta tab_usuario.cuenta%type,
+    p_tipo tab_usuario.tipo%type,
+    p_clave tab_usuario.clave%type,
+	p_dinero tab_usuario.dinero%type,
+    p_nombre tab_usuario.nombre%type,
+    p_apellido tab_usuario.apellido%type
 )
-returns int
-as
-$$
-begin
-    insert into tab_usuario (cuenta, tipo, clave, nombre, apellido) values (p.cuenta, p.tipo, p.clave, p.nombre, p.apellido);
-end;
-IF FOUND THEN
-            RAISE NOTICE 'Usuario insertado exitosamente: % por usuario ID: %', p.nombre, p.apellido;
-            RETURN 'Usuario insertado correctamente';
-        ELSE
-            RAISE NOTICE 'Error: No se pudo insertar el usuario';
-            RETURN 'Error al insertar el usuario';
-        END IF;
+RETURNS int
+AS $$
+BEGIN
+    INSERT INTO tab_usuario (cuenta, tipo, clave, dinero, nombre, apellido) values (p_cuenta, p_tipo, p_clave, p_nombre, p.nombre, p_apellido);
+  IF FOUND THEN
+    RAISE NOTICE 'Usuario insertado exitosamente: % %', p_nombre, p_apellido;
+    RETURN 1;
+  ELSE
+    RAISE NOTICE 'Error: No se pudo insertar el usuario';
+    RETURN 0;
+  END IF;
+END;
 $$
 language plpgsql;
