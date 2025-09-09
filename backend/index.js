@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import errorMiddleware from './middlewares/error.middleware.js';
+import authRoutes from './routes/auth.controller.js';
 
 dotenv.config();
 
@@ -20,6 +21,9 @@ app.get('/', (req, res) => {
     status: 'OK'
   });
 });
+
+// Rutas de autenticación
+app.use('/api/auth', authRoutes);
 
 app.use(errorMiddleware);
 

@@ -1,8 +1,8 @@
 Create table tab_usuario(
     cuenta int primary key,
-    tipo varchar(50),
-    clave varchar(50),
+    tipo varchar,
+    clave varchar,
     dinero int,
-    nombre varchar(50),
-    apellido varchar(50)
+    nombre varchar,
+    apellido varchar
 )
