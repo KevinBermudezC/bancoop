@@ -40,91 +40,182 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // Form validation and submission
-  const loginForm = document.querySelector(".login-form form");
+  const loginForm = document.querySelector(".login-card form");
   const registrationForm = document.querySelector(".registration-form form");
+
+  console.log("🔍 Formularios encontrados:", { loginForm, registrationForm });
 
   // Login form handling
   if (loginForm) {
-    loginForm.addEventListener("submit", function (e) {
+    console.log(
+      "✅ Formulario de login encontrado, agregando event listener..."
+    );
+    loginForm.addEventListener("submit", async function (e) {
       e.preventDefault();
+      console.log("🔑 Formulario de login enviado - preventDefault ejecutado");
 
       const account = document.getElementById("account").value;
       const accountType = document.getElementById("account-type").value;
       const password = document.getElementById("password").value;
 
-      if (!account || !accountType || !password) {
+      console.log("📝 Datos de login:", { account, accountType, password });
+
+      if (!account || !password) {
         showNotification("Por favor completa todos los campos", "error");
         return;
       }
 
-      // Simulate login process
+      // Mostrar loading
       showNotification("Iniciando sesión...", "info");
 
-      setTimeout(() => {
-        // Simular datos de usuario (en una app real, estos vendrían del backend)
-        const userData = getUserData(account, accountType, password);
+      try {
+        console.log("📤 Enviando datos de login al backend");
 
-        if (userData) {
+        // Llamar a la API del backend
+        const response = await apiService.login(account, password);
+
+        console.log("📥 Respuesta de login del backend:", response);
+
+        if (response.success) {
+          console.log("✅ Login exitoso, preparando redirección...");
+
           // Guardar datos del usuario en localStorage
+          const userData = {
+            cuenta: response.data.cuenta,
+            tipo: response.data.tipo,
+            nombre: response.data.nombre,
+            apellido: response.data.apellido,
+            dinero: response.data.dinero || 0, // Obtener saldo del backend
+          };
+
           localStorage.setItem("userData", JSON.stringify(userData));
+          console.log("💾 Datos guardados en localStorage:", userData);
 
           showNotification("¡Bienvenido a BANCOOP!", "success");
 
           // Redirigir al dashboard después de un breve delay
           setTimeout(() => {
+            console.log("🔄 Redirigiendo al dashboard...");
             window.location.href = "dashboard.html";
           }, 1000);
         } else {
-          showNotification(
-            "Credenciales incorrectas. Intenta de nuevo.",
-            "error"
-          );
+          console.log("❌ Login falló:", response);
+          showNotification("Error en el login. Intenta de nuevo.", "error");
         }
-      }, 1500);
+      } catch (error) {
+        console.error("Error en login:", error);
+
+        // Mostrar mensaje específico según el tipo de error
+        let errorMessage = "Error al iniciar sesión. Intenta de nuevo.";
+
+        if (error.message.includes("Credenciales inválidas")) {
+          errorMessage =
+            "❌ Credenciales incorrectas. Verifica tu número de cuenta y clave.";
+        } else if (error.message.includes("Cuenta y clave son requeridos")) {
+          errorMessage = "❌ Por favor completa todos los campos.";
+        } else if (error.message.includes("Error interno del servidor")) {
+          errorMessage = "❌ Error del servidor. Intenta más tarde.";
+        } else if (error.message.includes("Failed to fetch")) {
+          errorMessage =
+            "❌ No se puede conectar al servidor. Verifica tu conexión.";
+        }
+
+        showNotification(errorMessage, "error");
+      }
     });
+  } else {
+    console.log("❌ Formulario de login no encontrado");
   }
 
   // Registration form handling
   if (registrationForm) {
-    registrationForm.addEventListener("submit", function (e) {
+    registrationForm.addEventListener("submit", async function (e) {
       e.preventDefault();
+      console.log("🚀 Formulario de registro enviado");
 
-      const fullName = document.getElementById("full-name").value;
-      const email = document.getElementById("email").value;
-      const document = document.getElementById("document").value;
-      const newPassword = document.getElementById("new-password").value;
+      const nombre = document.getElementById("nombre").value;
+      const apellido = document.getElementById("apellido").value;
+      const cuenta = document.getElementById("cuenta").value;
+      const tipoCuenta = document.getElementById("tipo-cuenta").value;
+      const dineroInicial = document.getElementById("dinero-inicial").value;
+      const clave = document.getElementById("clave").value;
 
-      if (!fullName || !email || !document || !newPassword) {
+      console.log("📝 Datos del formulario:", {
+        nombre,
+        apellido,
+        cuenta,
+        tipoCuenta,
+        dineroInicial,
+        clave,
+      });
+
+      if (!nombre || !apellido || !cuenta || !tipoCuenta || !clave) {
         showNotification("Por favor completa todos los campos", "error");
         return;
       }
 
-      // Basic email validation
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(email)) {
+      // Validar número de cuenta
+      if (cuenta.length < 6) {
         showNotification(
-          "Por favor ingresa un correo electrónico válido",
+          "El número de cuenta debe tener al menos 6 dígitos",
           "error"
         );
         return;
       }
 
-      // Basic password validation
-      if (newPassword.length < 6) {
-        showNotification("La clave debe tener al menos 6 caracteres", "error");
+      // Validar saldo inicial
+      const saldo = parseInt(dineroInicial);
+      if (saldo < 0) {
+        showNotification("El saldo inicial no puede ser negativo", "error");
         return;
       }
 
-      // Simulate registration process
+      // Basic password validation
+      if (clave.length < 4) {
+        showNotification("La clave debe tener al menos 4 caracteres", "error");
+        return;
+      }
+
+      // Mostrar loading
       showNotification("Creando tu cuenta...", "info");
 
-      setTimeout(() => {
+      try {
+        // Preparar datos para el registro según la función fun_insert_usuario
+        const userData = {
+          cuenta: cuenta,
+          tipo: tipoCuenta,
+          clave: clave,
+          dinero: saldo,
+          nombre: nombre,
+          apellido: apellido,
+        };
+
+        console.log("📤 Enviando datos al backend:", userData);
+
+        // Llamar a la API del backend
+        const response = await apiService.register(userData);
+
+        console.log("📥 Respuesta del backend:", response);
+
+        if (response.success) {
+          showNotification(
+            "¡Cuenta creada exitosamente! Ya puedes iniciar sesión.",
+            "success"
+          );
+          registrationForm.reset();
+
+          // Cambiar a la sección de login después del registro exitoso
+          setTimeout(() => {
+            showMainSection();
+          }, 2000);
+        }
+      } catch (error) {
+        console.error("Error en registro:", error);
         showNotification(
-          "¡Cuenta creada exitosamente! Revisa tu correo electrónico.",
-          "success"
+          error.message || "Error al crear la cuenta. Intenta de nuevo.",
+          "error"
         );
-        registrationForm.reset();
-      }, 1500);
+      }
     });
   }
 
@@ -195,7 +286,7 @@ document.addEventListener("DOMContentLoaded", function () {
             border-radius: 0.75rem;
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
             backdrop-filter: blur(10px);
-            animation: slideInRight 0.3s ease-out;
+            animation: slideInRight 1s ease-out;
             border-left: 4px solid;
             color: white;
         `;
@@ -220,14 +311,14 @@ document.addEventListener("DOMContentLoaded", function () {
     // Add close functionality
     const closeButton = notification.querySelector(".notification-close");
     closeButton.addEventListener("click", () => {
-      notification.style.animation = "slideOutRight 0.3s ease-in forwards";
+      notification.style.animation = "slideOutRight 1s ease-in forwards";
       setTimeout(() => notification.remove(), 300);
     });
 
     // Auto-remove after 5 seconds
     setTimeout(() => {
       if (notification.parentNode) {
-        notification.style.animation = "slideOutRight 0.3s ease-in forwards";
+        notification.style.animation = "slideOutRight 1s ease-in forwards";
         setTimeout(() => notification.remove(), 300);
       }
     }, 5000);

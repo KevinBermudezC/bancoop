@@ -1,5 +1,9 @@
-import { createUser, getUserByAccount, verifyLogin } from '../db/userQueries.js';
-import bcrypt from 'bcryptjs';
+import {
+  createUser,
+  getUserByAccount,
+  verifyLogin,
+} from "../db/userQueries.js";
+import bcrypt from "bcryptjs";
 
 // Registrar nuevo usuario
 export const register = async (req, res) => {
@@ -10,7 +14,7 @@ export const register = async (req, res) => {
     if (!cuenta || !tipo || !clave || !dinero || !nombre || !apellido) {
       return res.status(400).json({
         success: false,
-        message: 'Todos los campos son requeridos'
+        message: "Todos los campos son requeridos",
       });
     }
 
@@ -19,7 +23,7 @@ export const register = async (req, res) => {
     if (existingUser) {
       return res.status(400).json({
         success: false,
-        message: 'El usuario ya existe'
+        message: "El usuario ya existe",
       });
     }
 
@@ -27,25 +31,31 @@ export const register = async (req, res) => {
     const hashedPassword = await bcrypt.hash(clave, 10);
 
     // Crear usuario
-    const newUser = await createUser(cuenta, tipo, hashedPassword, dinero, nombre, apellido);
+    const newUser = await createUser(
+      cuenta,
+      tipo,
+      hashedPassword,
+      dinero,
+      nombre,
+      apellido
+    );
 
     res.status(201).json({
       success: true,
-      message: 'Usuario registrado exitosamente',
+      message: "Usuario registrado exitosamente",
       data: {
         cuenta: newUser.cuenta,
         tipo: newUser.tipo,
         dinero: newUser.dinero,
         nombre: newUser.nombre,
-        apellido: newUser.apellido
-      }
+        apellido: newUser.apellido,
+      },
     });
-
   } catch (error) {
-    console.error('Error en registro:', error);
+    console.error("Error en registro:", error);
     res.status(500).json({
       success: false,
-      message: 'Error interno del servidor'
+      message: "Error interno del servidor",
     });
   }
 };
@@ -59,7 +69,7 @@ export const login = async (req, res) => {
     if (!cuenta || !clave) {
       return res.status(400).json({
         success: false,
-        message: 'Cuenta y clave son requeridos'
+        message: "Cuenta y clave son requeridos",
       });
     }
 
@@ -68,7 +78,7 @@ export const login = async (req, res) => {
     if (!user) {
       return res.status(401).json({
         success: false,
-        message: 'Credenciales inválidas'
+        message: "Credenciales inválidas",
       });
     }
 
@@ -77,27 +87,27 @@ export const login = async (req, res) => {
     if (!isValidPassword) {
       return res.status(401).json({
         success: false,
-        message: 'Credenciales inválidas'
+        message: "Credenciales inválidas",
       });
     }
 
     res.json({
       success: true,
-      message: 'Inicio de sesión exitoso',
+      message: "Inicio de sesión exitoso",
       data: {
         id: user.id,
         cuenta: user.cuenta,
         tipo: user.tipo,
+        dinero: user.dinero,
         nombre: user.nombre,
-        apellido: user.apellido
-      }
+        apellido: user.apellido,
+      },
     });
-
   } catch (error) {
-    console.error('Error en login:', error);
+    console.error("Error en login:", error);
     res.status(500).json({
       success: false,
-      message: 'Error interno del servidor'
+      message: "Error interno del servidor",
     });
   }
 };
