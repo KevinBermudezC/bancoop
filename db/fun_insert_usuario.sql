@@ -9,7 +9,7 @@ CREATE OR REPLACE FUNCTION fun_insert_usuario(
 RETURNS int
 AS $$
 BEGIN
-    INSERT INTO tab_usuario (cuenta, tipo, clave, dinero, nombre, apellido) values (p_cuenta, p_tipo, p_clave, p_nombre, p.nombre, p_apellido);
+    INSERT INTO tab_usuario (cuenta, tipo, clave, dinero, nombre, apellido) values (p_cuenta, p_tipo, p_clave, p_dinero, p_nombre, p_apellido);
   IF FOUND THEN
     RAISE NOTICE 'Usuario insertado exitosamente: % %', p_nombre, p_apellido;
     RETURN 1;

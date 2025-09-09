@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mi Cuenta - BANCOOP</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="dashboard-page">
+    <!-- Header -->
+    <header class="dashboard-header">
+      <div class="container">
+        <div class="header-content">
+          <div class="logo">
+            <h1>BANCOOP</h1>
+            <span class="tagline">Bienvenido a tu cuenta</span>
+          </div>
+          <div class="user-actions">
+            <div class="user-info">
+              <i class="fas fa-user"></i>
+              <span id="user-name">Cargando...</span>
+            </div>
+            <button class="btn-logout" onclick="logout()">
+              <i class="fas fa-sign-out-alt"></i>
+              Cerrar sesión
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Dashboard -->
+    <main class="dashboard-main">
+      <div class="container">
+        <!-- Account Summary -->
+        <section class="account-summary">
+          <div class="welcome-message">
+            <h2 id="welcome-text">¡Bienvenido!</h2>
+            <p>Gestiona tu cuenta desde aquí</p>
+          </div>
+
+          <!-- Balance Card -->
+          <div class="balance-card">
+            <div class="balance-header">
+              <h3>Saldo Total</h3>
+              <div class="account-number">
+                <span>Cuenta No.</span>
+                <strong id="account-display">****</strong>
+              </div>
+            </div>
+            <div class="balance-amount">
+              <span class="currency">$</span>
+              <span id="balance-display">0</span>
+              <small>COP</small>
+            </div>
+            <div class="account-type-badge">
+              <i class="fas fa-star"></i>
+              <span id="account-type-display">Cuenta Corriente</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Quick Actions -->
+        <section class="quick-actions">
+          <h3>Acciones Rápidas</h3>
+          <div class="actions-grid">
+            <div class="action-card" onclick="showTransferModal()">
+              <div class="action-icon">
+                <i class="fas fa-exchange-alt"></i>
+              </div>
+              <h4>Transferir</h4>
+              <p>Envía dinero a otras cuentas</p>
+            </div>
+
+            <div class="action-card" onclick="showPaymentModal()">
+              <div class="action-icon">
+                <i class="fas fa-credit-card"></i>
+              </div>
+              <h4>Pagar Servicios</h4>
+              <p>Paga tus facturas</p>
+            </div>
+
+            <div class="action-card" onclick="showDepositModal()">
+              <div class="action-icon">
+                <i class="fas fa-plus-circle"></i>
+              </div>
+              <h4>Consignar</h4>
+              <p>Añade dinero a tu cuenta</p>
+            </div>
+
+            <div class="action-card" onclick="showWithdrawModal()">
+              <div class="action-icon">
+                <i class="fas fa-minus-circle"></i>
+              </div>
+              <h4>Retirar</h4>
+              <p>Retira dinero de tu cuenta</p>
+            </div>
+
+            <div class="action-card" onclick="showStatements()">
+              <div class="action-icon">
+                <i class="fas fa-file-alt"></i>
+              </div>
+              <h4>Extractos</h4>
+              <p>Consulta tus movimientos</p>
+            </div>
+
+            <div class="action-card" onclick="showProfile()">
+              <div class="action-icon">
+                <i class="fas fa-user-cog"></i>
+              </div>
+              <h4>Mi Perfil</h4>
+              <p>Actualiza tus datos</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Recent Transactions -->
+        <section class="recent-transactions">
+          <div class="section-header">
+            <h3>Últimos Movimientos</h3>
+            <a href="#" class="view-all">Ver todos</a>
+          </div>
+          <div class="transactions-list">
+            <div class="transaction-item">
+              <div class="transaction-icon income">
+                <i class="fas fa-arrow-down"></i>
+              </div>
+              <div class="transaction-details">
+                <h4>Transferencia recibida</h4>
+                <p>Juan Pérez - Hace 2 horas</p>
+              </div>
+              <div class="transaction-amount income">+$250,000</div>
+            </div>
+
+            <div class="transaction-item">
+              <div class="transaction-icon expense">
+                <i class="fas fa-shopping-cart"></i>
+              </div>
+              <div class="transaction-details">
+                <h4>Compra en línea</h4>
+                <p>Amazon.com - Ayer</p>
+              </div>
+              <div class="transaction-amount expense">-$89,500</div>
+            </div>
+
+            <div class="transaction-item">
+              <div class="transaction-icon income">
+                <i class="fas fa-building"></i>
+              </div>
+              <div class="transaction-details">
+                <h4>Salario</h4>
+                <p>Empresa ABC - 03 Nov</p>
+              </div>
+              <div class="transaction-amount income">+$2,500,000</div>
+            </div>
+
+            <div class="transaction-item">
+              <div class="transaction-icon expense">
+                <i class="fas fa-bolt"></i>
+              </div>
+              <div class="transaction-details">
+                <h4>Pago de servicios</h4>
+                <p>EPM - 02 Nov</p>
+              </div>
+              <div class="transaction-amount expense">-$125,000</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Products -->
+        <section class="user-products">
+          <h3>Mis Productos</h3>
+          <div class="products-grid">
+            <div class="product-item">
+              <div class="product-icon">
+                <i class="fas fa-piggy-bank"></i>
+              </div>
+              <div class="product-info">
+                <h4>Cuenta de Ahorros</h4>
+                <p>****1234</p>
+                <span class="product-balance">$150,000</span>
+              </div>
+              <div class="product-action">
+                <i class="fas fa-chevron-right"></i>
+              </div>
+            </div>
+
+            <div class="product-item">
+              <div class="product-icon">
+                <i class="fas fa-credit-card"></i>
+              </div>
+              <div class="product-info">
+                <h4>Tarjeta de Crédito</h4>
+                <p>****5678</p>
+                <span class="product-balance">$2,000,000 disponible</span>
+              </div>
+              <div class="product-action">
+                <i class="fas fa-chevron-right"></i>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- Modals -->
+    <!-- Transfer Modal -->
+    <div id="transferModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Realizar Transferencia</h3>
+          <span class="close" onclick="closeModal('transferModal')"
+            >&times;</span
+          >
+        </div>
+        <div class="modal-body">
+          <form class="transfer-form">
+            <div class="form-group">
+              <label for="transfer-account">Cuenta destino:</label>
+              <input
+                type="text"
+                id="transfer-account"
+                placeholder="Número de cuenta"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="transfer-amount">Monto:</label>
+              <input
+                type="number"
+                id="transfer-amount"
+                placeholder="$0"
+                min="1000"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="transfer-description">Descripción:</label>
+              <input
+                type="text"
+                id="transfer-description"
+                placeholder="Opcional"
+              />
+            </div>
+            <div class="form-buttons">
+              <button type="submit" class="btn btn-primary">Transferir</button>
+              <button
+                type="button"
+                class="btn btn-secondary"
+                onclick="closeModal('transferModal')"
+              >
+                Cancelar
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Profile Modal -->
+    <div id="profileModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Mi Perfil</h3>
+          <span class="close" onclick="closeModal('profileModal')"
+            >&times;</span
+          >
+        </div>
+        <div class="modal-body">
+          <div class="profile-info">
+            <div class="profile-field">
+              <label>Nombre:</label>
+              <span id="profile-name">Cargando...</span>
+            </div>
+            <div class="profile-field">
+              <label>Apellido:</label>
+              <span id="profile-lastname">Cargando...</span>
+            </div>
+            <div class="profile-field">
+              <label>Número de cuenta:</label>
+              <span id="profile-account">Cargando...</span>
+            </div>
+            <div class="profile-field">
+              <label>Tipo de cuenta:</label>
+              <span id="profile-type">Cargando...</span>
+            </div>
+            <div class="profile-field">
+              <label>Saldo actual:</label>
+              <span id="profile-balance">$0</span>
+            </div>
+          </div>
+          <div class="form-buttons">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              onclick="closeModal('profileModal')"
+            >
+              Cerrar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Get user data from localStorage (set during login)
+      let userData = null;
+
+      document.addEventListener("DOMContentLoaded", function () {
+        // Check if user is logged in
+        const userDataStr = localStorage.getItem("userData");
+        if (!userDataStr) {
+          window.location.href = "index.html";
+          return;
+        }
+
+        try {
+          userData = JSON.parse(userDataStr);
+          loadUserData();
+        } catch (error) {
+          console.error("Error parsing user data:", error);
+          window.location.href = "index.html";
+        }
+      });
+
+      function loadUserData() {
+        if (!userData) return;
+
+        // Update user info in header
+        document.getElementById(
+          "user-name"
+        ).textContent = `${userData.nombre} ${userData.apellido}`;
+        document.getElementById(
+          "welcome-text"
+        ).textContent = `¡Bienvenido, ${userData.nombre}!`;
+
+        // Update account info
+        document.getElementById("account-display").textContent =
+          userData.cuenta;
+        document.getElementById("balance-display").textContent = formatCurrency(
+          userData.dinero || 0
+        );
+        document.getElementById("account-type-display").textContent =
+          userData.tipo || "Cuenta Corriente";
+
+        // Update profile modal
+        document.getElementById("profile-name").textContent = userData.nombre;
+        document.getElementById("profile-lastname").textContent =
+          userData.apellido;
+        document.getElementById("profile-account").textContent =
+          userData.cuenta;
+        document.getElementById("profile-type").textContent = userData.tipo;
+        document.getElementById("profile-balance").textContent = formatCurrency(
+          userData.dinero || 0
+        );
+      }
+
+      function formatCurrency(amount) {
+        return new Intl.NumberFormat("es-CO").format(amount);
+      }
+
+      function logout() {
+        localStorage.removeItem("userData");
+        window.location.href = "index.html";
+      }
+
+      // Modal functions
+      function showTransferModal() {
+        document.getElementById("transferModal").style.display = "block";
+      }
+
+      function showProfile() {
+        document.getElementById("profileModal").style.display = "block";
+      }
+
+      function closeModal(modalId) {
+        document.getElementById(modalId).style.display = "none";
+      }
+
+      // Quick action functions
+      function showPaymentModal() {
+        showNotification("Función de pagos próximamente disponible", "info");
+      }
+
+      function showDepositModal() {
+        showNotification(
+          "Función de consignación próximamente disponible",
+          "info"
+        );
+      }
+
+      function showWithdrawModal() {
+        showNotification("Función de retiros próximamente disponible", "info");
+      }
+
+      function showStatements() {
+        showNotification("Extractos próximamente disponibles", "info");
+      }
+
+      // Notification system
+      function showNotification(message, type = "info") {
+        const notification = document.createElement("div");
+        notification.className = `notification ${type}`;
+        notification.textContent = message;
+
+        document.body.appendChild(notification);
+
+        setTimeout(() => {
+          notification.classList.add("show");
+        }, 100);
+
+        setTimeout(() => {
+          notification.classList.remove("show");
+          setTimeout(() => {
+            document.body.removeChild(notification);
+          }, 300);
+        }, 3000);
+      }
+
+      // Transfer form handling
+      document.addEventListener("DOMContentLoaded", function () {
+        const transferForm = document.querySelector(".transfer-form");
+        if (transferForm) {
+          transferForm.addEventListener("submit", function (e) {
+            e.preventDefault();
+            showNotification("Transferencia procesada exitosamente", "success");
+            closeModal("transferModal");
+            transferForm.reset();
+          });
+        }
+      });
+
+      // Close modal when clicking outside
+      window.onclick = function (event) {
+        const modals = document.querySelectorAll(".modal");
+        modals.forEach((modal) => {
+          if (event.target == modal) {
+            modal.style.display = "none";
+          }
+        });
+      };
+    </script>
+    <script src="script.js"></script>
+  </body>
+</html>

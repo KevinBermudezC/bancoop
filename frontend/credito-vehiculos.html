@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crédito Vehículos - BANCOOP</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="vehiculos-landing">
+    <!-- Hero Section -->
+    <section class="landing-hero">
+      <div class="landing-container">
+        <div class="hero-content">
+          <h1><i class="fas fa-car"></i> Crédito Vehículos BANCOOP</h1>
+          <p>
+            Financia el vehículo de tus sueños con las mejores condiciones del
+            mercado
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+      <div class="landing-container">
+        <h2 class="section-title">
+          ¿Por qué financiar tu vehículo con nosotros?
+        </h2>
+        <p class="section-subtitle">
+          Condiciones diseñadas para que puedas disfrutar tu vehículo desde el
+          primer día
+        </p>
+
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-clock"></i>
+            </div>
+            <h3>Aprobación en 24 horas</h3>
+            <p>
+              Proceso de aprobación rápido y eficiente. Tendrás respuesta en
+              máximo 24 horas hábiles.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-percentage"></i>
+            </div>
+            <h3>Tasas competitivas</h3>
+            <p>
+              Desde 0.95% M.V. para vehículos nuevos y 1.15% M.V. para vehículos
+              usados con las mejores condiciones.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-calendar"></i>
+            </div>
+            <h3>Hasta 84 meses</h3>
+            <p>
+              Plazo extenso para que tu cuota mensual se ajuste a tu presupuesto
+              familiar.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-shield-alt"></i>
+            </div>
+            <h3>Seguros incluidos</h3>
+            <p>
+              SOAT, seguro todo riesgo y seguros de vida y desempleo para tu
+              tranquilidad total.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Vehicle Types -->
+    <section class="vehicle-types">
+      <div class="landing-container">
+        <h2 class="section-title">Financiamos todo tipo de vehículos</h2>
+        <p class="section-subtitle">
+          Desde motos hasta vehículos comerciales, tenemos la solución perfecta
+          para ti
+        </p>
+
+        <div class="vehicles-grid">
+          <div class="vehicle-card">
+            <div class="vehicle-icon">
+              <i class="fas fa-car"></i>
+            </div>
+            <h3>Automóviles</h3>
+            <p>Carros particulares nuevos y usados</p>
+            <div class="highlight-box">
+              <h4>Hasta 80% de financiación</h4>
+              <p>Con cuota inicial desde 20%</p>
+            </div>
+          </div>
+
+          <div class="vehicle-card">
+            <div class="vehicle-icon">
+              <i class="fas fa-motorcycle"></i>
+            </div>
+            <h3>Motocicletas</h3>
+            <p>Motos de todos los cilindrajes</p>
+            <div class="highlight-box">
+              <h4>Hasta 60% de financiación</h4>
+              <p>Con cuota inicial desde 40%</p>
+            </div>
+          </div>
+
+          <div class="vehicle-card">
+            <div class="vehicle-icon">
+              <i class="fas fa-truck"></i>
+            </div>
+            <h3>Vehículos comerciales</h3>
+            <p>Camiones, camionetas y utilitarios</p>
+            <div class="highlight-box">
+              <h4>Hasta 70% de financiación</h4>
+              <p>Con cuota inicial desde 30%</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Calculator Section -->
+    <section class="calculator-section">
+      <div class="landing-container">
+        <h2 class="section-title">Simula tu crédito</h2>
+        <p class="section-subtitle">
+          Calcula tu cuota mensual y planifica tu compra
+        </p>
+
+        <div class="calculator-container">
+          <div class="calculator-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="vehicle-value">Valor del vehículo ($)</label>
+                <input
+                  type="number"
+                  id="vehicle-value"
+                  placeholder="Ej: 50000000"
+                  min="10000000"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="initial-payment">Cuota inicial ($)</label>
+                <input
+                  type="number"
+                  id="initial-payment"
+                  placeholder="Ej: 10000000"
+                  min="0"
+                />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="vehicle-type">Tipo de vehículo</label>
+                <select id="vehicle-type">
+                  <option value="new-car">Automóvil nuevo</option>
+                  <option value="used-car">Automóvil usado</option>
+                  <option value="motorcycle">Motocicleta</option>
+                  <option value="commercial">Vehículo comercial</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="loan-term">Plazo (meses)</label>
+                <select id="loan-term">
+                  <option value="12">12 meses</option>
+                  <option value="24">24 meses</option>
+                  <option value="36">36 meses</option>
+                  <option value="48">48 meses</option>
+                  <option value="60">60 meses</option>
+                  <option value="72">72 meses</option>
+                  <option value="84">84 meses</option>
+                </select>
+              </div>
+            </div>
+
+            <button
+              type="button"
+              class="calculate-btn"
+              onclick="calculateCredit()"
+            >
+              Simular crédito
+            </button>
+
+            <div id="result" class="result">
+              <h4 style="text-align: center; margin-bottom: 20px">
+                Resultado de tu simulación:
+              </h4>
+              <div class="result-grid">
+                <div class="result-item">
+                  <div>Monto a financiar</div>
+                  <div class="result-value" id="loan-amount"></div>
+                </div>
+                <div class="result-item">
+                  <div>Cuota mensual</div>
+                  <div class="result-value" id="monthly-payment"></div>
+                </div>
+                <div class="result-item">
+                  <div>Total a pagar</div>
+                  <div class="result-value" id="total-payment"></div>
+                </div>
+                <div class="result-item">
+                  <div>Tasa aplicada</div>
+                  <div class="result-value" id="applied-rate"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Rates Table -->
+    <section class="benefits-section">
+      <div class="landing-container">
+        <h2 class="section-title">Nuestras tasas</h2>
+        <p class="section-subtitle">
+          Tasas preferenciales según el tipo de vehículo
+        </p>
+
+        <div class="rates-table">
+          <table>
+            <thead>
+              <tr>
+                <th>Tipo de Vehículo</th>
+                <th>Tasa M.V.</th>
+                <th>Plazo máximo</th>
+                <th>Financiación máxima</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Automóvil nuevo</td>
+                <td>Desde 0.95%</td>
+                <td>84 meses</td>
+                <td>80%</td>
+              </tr>
+              <tr>
+                <td>Automóvil usado</td>
+                <td>Desde 1.15%</td>
+                <td>72 meses</td>
+                <td>80%</td>
+              </tr>
+              <tr>
+                <td>Motocicleta</td>
+                <td>Desde 1.25%</td>
+                <td>48 meses</td>
+                <td>60%</td>
+              </tr>
+              <tr>
+                <td>Vehículo comercial</td>
+                <td>Desde 1.05%</td>
+                <td>72 meses</td>
+                <td>70%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Requirements Section -->
+    <section class="requirements-section">
+      <div class="landing-container">
+        <h2 class="section-title">Requisitos</h2>
+        <p class="section-subtitle">
+          Documentación necesaria para tu solicitud
+        </p>
+
+        <div class="requirements-grid">
+          <div class="requirement-card">
+            <div class="requirement-icon">
+              <i class="fas fa-id-card"></i>
+            </div>
+            <h4>Identificación</h4>
+            <p>Cédula de ciudadanía y codeudor si es necesario</p>
+          </div>
+
+          <div class="requirement-card">
+            <div class="requirement-icon">
+              <i class="fas fa-money-bill-wave"></i>
+            </div>
+            <h4>Ingresos</h4>
+            <p>Certificado laboral y últimos 3 desprendibles de pago</p>
+          </div>
+
+          <div class="requirement-card">
+            <div class="requirement-icon">
+              <i class="fas fa-file-alt"></i>
+            </div>
+            <h4>Referencias</h4>
+            <p>Referencias comerciales y familiares</p>
+          </div>
+
+          <div class="requirement-card">
+            <div class="requirement-icon">
+              <i class="fas fa-car-side"></i>
+            </div>
+            <h4>Vehículo</h4>
+            <p>Cotización o carta de intención de compra</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits-section">
+      <div class="landing-container">
+        <h2 class="section-title">Beneficios adicionales</h2>
+
+        <div class="benefits-list">
+          <div class="benefit-item">
+            <div class="benefit-icon">
+              <i class="fas fa-check-circle"></i>
+            </div>
+            <div class="benefit-text">
+              <h4>Trámites incluidos</h4>
+              <p>
+                Nos encargamos de matrícula, traspaso y demás trámites legales
+              </p>
+            </div>
+          </div>
+
+          <div class="benefit-item">
+            <div class="benefit-icon">
+              <i class="fas fa-check-circle"></i>
+            </div>
+            <div class="benefit-text">
+              <h4>Sin penalidades por pago anticipado</h4>
+              <p>
+                Puedes abonar a capital o cancelar totalmente sin penalidades
+              </p>
+            </div>
+          </div>
+
+          <div class="benefit-item">
+            <div class="benefit-icon">
+              <i class="fas fa-check-circle"></i>
+            </div>
+            <div class="benefit-text">
+              <h4>Descuentos por nómina</h4>
+              <p>Obtén mejores tasas si manejas tu nómina con nosotros</p>
+            </div>
+          </div>
+
+          <div class="benefit-item">
+            <div class="benefit-icon">
+              <i class="fas fa-check-circle"></i>
+            </div>
+            <div class="benefit-text">
+              <h4>Renovación automática</h4>
+              <p>
+                Renovamos automáticamente tu SOAT sin que tengas que preocuparte
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+      <div class="landing-container">
+        <h2>¡Tu vehículo te está esperando!</h2>
+        <p>No esperes más para tener el vehículo que siempre has querido</p>
+        <a href="#solicitar" class="cta-button">Solicitar crédito</a>
+        <a href="tel:018000-00001" class="cta-button">Llamar: 018000-00001</a>
+        <br />
+        <a href="index.html" class="back-link">
+          <i class="fas fa-arrow-left"></i> Volver al inicio
+        </a>
+      </div>
+    </section>
+
+    <script>
+      function calculateCredit() {
+        const vehicleValue = parseFloat(
+          document.getElementById("vehicle-value").value
+        );
+        const initialPayment =
+          parseFloat(document.getElementById("initial-payment").value) || 0;
+        const vehicleType = document.getElementById("vehicle-type").value;
+        const loanTerm = parseInt(document.getElementById("loan-term").value);
+
+        if (!vehicleValue || vehicleValue < 10000000) {
+          alert("Por favor ingresa un valor mínimo de $10.000.000");
+          return;
+        }
+
+        const loanAmount = vehicleValue - initialPayment;
+
+        if (loanAmount <= 0) {
+          alert(
+            "La cuota inicial no puede ser mayor o igual al valor del vehículo"
+          );
+          return;
+        }
+
+        // Tasas según tipo de vehículo (mensual)
+        let monthlyRate;
+        let rateDisplay;
+
+        switch (vehicleType) {
+          case "new-car":
+            monthlyRate = 0.0095; // 0.95% M.V.
+            rateDisplay = "0.95% M.V.";
+            break;
+          case "used-car":
+            monthlyRate = 0.0115; // 1.15% M.V.
+            rateDisplay = "1.15% M.V.";
+            break;
+          case "motorcycle":
+            monthlyRate = 0.0125; // 1.25% M.V.
+            rateDisplay = "1.25% M.V.";
+            break;
+          case "commercial":
+            monthlyRate = 0.0105; // 1.05% M.V.
+            rateDisplay = "1.05% M.V.";
+            break;
+          default:
+            monthlyRate = 0.0095;
+            rateDisplay = "0.95% M.V.";
+        }
+
+        // Cálculo de cuota usando fórmula de cuota fija
+        const monthlyPayment =
+          (loanAmount * (monthlyRate * Math.pow(1 + monthlyRate, loanTerm))) /
+          (Math.pow(1 + monthlyRate, loanTerm) - 1);
+        const totalPayment = monthlyPayment * loanTerm;
+
+        document.getElementById(
+          "loan-amount"
+        ).textContent = `$${loanAmount.toLocaleString("es-CO")}`;
+        document.getElementById(
+          "monthly-payment"
+        ).textContent = `$${monthlyPayment.toLocaleString("es-CO")}`;
+        document.getElementById(
+          "total-payment"
+        ).textContent = `$${totalPayment.toLocaleString("es-CO")}`;
+        document.getElementById("applied-rate").textContent = rateDisplay;
+
+        document.getElementById("result").style.display = "block";
+      }
+    </script>
+    <script src="script.js"></script>
+  </body>
+</html>

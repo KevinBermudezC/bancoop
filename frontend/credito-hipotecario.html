@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crédito Hipotecario - BANCOOP</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="hipotecario-landing">
+    <!-- Hero Section -->
+    <section class="landing-hero">
+      <div class="landing-container">
+        <div class="hero-content">
+          <h1><i class="fas fa-home"></i> Crédito Hipotecario BANCOOP</h1>
+          <p>
+            Haz realidad el sueño de tu casa propia con las mejores condiciones
+            del mercado
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+      <div class="landing-container">
+        <h2 class="section-title">Tu hogar ideal te espera</h2>
+        <p class="section-subtitle">
+          Condiciones especiales para que puedas adquirir la vivienda de tus
+          sueños
+        </p>
+
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-percentage"></i>
+            </div>
+            <h3>Desde UVR + 4.5% E.A.</h3>
+            <p>
+              Tasas competitivas ajustadas a las condiciones del mercado para
+              que tu cuota sea sostenible.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-calendar"></i>
+            </div>
+            <h3>Hasta 20 años de plazo</h3>
+            <p>
+              Tiempo suficiente para que puedas pagar tu vivienda sin afectar tu
+              estabilidad financiera.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-coins"></i>
+            </div>
+            <h3>Financia hasta el 80%</h3>
+            <p>
+              Cuota inicial desde el 20% del valor de la vivienda, facilitando
+              tu acceso a crédito.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-shield-alt"></i>
+            </div>
+            <h3>Avalúo y asesoría gratis</h3>
+            <p>
+              Incluimos el avalúo comercial y asesoría legal especializada sin
+              costo adicional.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Property Types -->
+    <section class="property-types">
+      <div class="landing-container">
+        <h2 class="section-title">Tipos de vivienda que financiamos</h2>
+        <p class="section-subtitle">
+          Desde tu primera vivienda hasta propiedades de inversión
+        </p>
+
+        <div class="properties-grid">
+          <div class="property-card">
+            <div class="property-icon">
+              <i class="fas fa-home"></i>
+            </div>
+            <h3>Vivienda nueva</h3>
+            <p>Apartamentos y casas en planos o terminadas</p>
+            <div class="highlight-box">
+              <h4>Beneficios adicionales</h4>
+              <p>Descuentos con constructoras aliadas</p>
+            </div>
+          </div>
+
+          <div class="property-card">
+            <div class="property-icon">
+              <i class="fas fa-building"></i>
+            </div>
+            <h3>Vivienda usada</h3>
+            <p>Propiedades con escritura pública registrada</p>
+            <div class="highlight-box">
+              <h4>Ventajas</h4>
+              <p>Proceso más rápido y flexible</p>
+            </div>
+          </div>
+
+          <div class="property-card">
+            <div class="property-icon">
+              <i class="fas fa-hammer"></i>
+            </div>
+            <h3>Construcción</h3>
+            <p>Financia la construcción de tu casa</p>
+            <div class="highlight-box">
+              <h4>Modalidad especial</h4>
+              <p>Desembolsos por avance de obra</p>
+            </div>
+          </div>
+
+          <div class="property-card">
+            <div class="property-icon">
+              <i class="fas fa-key"></i>
+            </div>
+            <h3>Leasing habitacional</h3>
+            <p>Alternativa para profesionales independientes</p>
+            <div class="highlight-box">
+              <h4>Ventaja fiscal</h4>
+              <p>Deducible de impuestos</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Calculator Section -->
+    <section class="calculator-section">
+      <div class="landing-container">
+        <h2 class="section-title">Simula tu crédito hipotecario</h2>
+        <p class="section-subtitle">
+          Calcula tu cuota y planifica la compra de tu vivienda
+        </p>
+
+        <div class="calculator-container">
+          <div class="calculator-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="property-value">Valor de la vivienda ($)</label>
+                <input
+                  type="number"
+                  id="property-value"
+                  placeholder="Ej: 300000000"
+                  min="100000000"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="initial-payment">Cuota inicial ($)</label>
+                <input
+                  type="number"
+                  id="initial-payment"
+                  placeholder="Ej: 60000000"
+                  min="0"
+                />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="property-type">Tipo de vivienda</label>
+                <select id="property-type">
+                  <option value="new">Vivienda nueva</option>
+                  <option value="used">Vivienda usada</option>
+                  <option value="construction">Construcción</option>
+                  <option value="leasing">Leasing habitacional</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="loan-term">Plazo (años)</label>
+                <select id="loan-term">
+                  <option value="5">5 años</option>
+                  <option value="10">10 años</option>
+                  <option value="15">15 años</option>
+                  <option value="20">20 años</option>
+                </select>
+              </div>
+            </div>
+
+            <button
+              type="button"
+              class="calculate-btn"
+              onclick="calculateMortgage()"
+            >
+              Simular crédito
+            </button>
+
+            <div id="result" class="result">
+              <h4 style="text-align: center; margin-bottom: 20px">
+                Resultado de tu simulación:
+              </h4>
+              <div class="result-grid">
+                <div class="result-item">
+                  <div>Monto a financiar</div>
+                  <div class="result-value" id="loan-amount"></div>
+                </div>
+                <div class="result-item">
+                  <div>Cuota mensual aprox.</div>
+                  <div class="result-value" id="monthly-payment"></div>
+                </div>
+                <div class="result-item">
+                  <div>Total a pagar</div>
+                  <div class="result-value" id="total-payment"></div>
+                </div>
+                <div class="result-item">
+                  <div>% sobre ingresos</div>
+                  <div class="result-value" id="income-percentage">-</div>
+                </div>
+              </div>
+
+              <div class="warning-box">
+                <h4>Importante:</h4>
+                <p>
+                  La cuota hipotecaria no debe superar el 30% de tus ingresos
+                  mensuales. Los valores son aproximados y están sujetos a
+                  estudio crediticio.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Rates Table -->
+    <section class="benefits-section">
+      <div class="landing-container">
+        <h2 class="section-title">Nuestras tasas hipotecarias</h2>
+        <p class="section-subtitle">
+          Condiciones especiales según el tipo de vivienda
+        </p>
+
+        <div class="rates-table">
+          <table>
+            <thead>
+              <tr>
+                <th>Tipo de Vivienda</th>
+                <th>Tasa E.A.</th>
+                <th>Plazo máximo</th>
+                <th>Financiación máxima</th>
+                <th>Cuota inicial mínima</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Vivienda nueva</td>
+                <td>UVR + 4.5%</td>
+                <td>20 años</td>
+                <td>80%</td>
+                <td>20%</td>
+              </tr>
+              <tr>
+                <td>Vivienda usada</td>
+                <td>UVR + 4.8%</td>
+                <td>20 años</td>
+                <td>70%</td>
+                <td>30%</td>
+              </tr>
+              <tr>
+                <td>Construcción</td>
+                <td>UVR + 5.0%</td>
+                <td>15 años</td>
+                <td>70%</td>
+                <td>30%</td>
+              </tr>
+              <tr>
+                <td>Leasing habitacional</td>
+                <td>DTF + 6.0%</td>
+                <td>15 años</td>
+                <td>80%</td>
+                <td>20%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process-section">
+      <div class="landing-container">
+        <h2 class="section-title">Proceso paso a paso</h2>
+        <p class="section-subtitle">Te acompañamos en cada etapa del proceso</p>
+
+        <div class="process-timeline">
+          <div class="process-step">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <h4>Evaluación inicial</h4>
+              <p>
+                Analizamos tu capacidad de pago y definimos el monto máximo a
+                financiar según tus ingresos.
+              </p>
+            </div>
+          </div>
+
+          <div class="process-step">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <h4>Pre-aprobación</h4>
+              <p>
+                Te otorgamos una carta de pre-aprobación que te permitirá buscar
+                tu vivienda con mayor certeza.
+              </p>
+            </div>
+          </div>
+
+          <div class="process-step">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <h4>Avalúo comercial</h4>
+              <p>
+                Realizamos el avalúo de la propiedad para determinar su valor
+                comercial real sin costo para ti.
+              </p>
+            </div>
+          </div>
+
+          <div class="process-step">
+            <div class="step-number">4</div>
+            <div class="step-content">
+              <h4>Aprobación final</h4>
+              <p>
+                Una vez aprobado el crédito, programamos la firma de escritura y
+                el desembolso.
+              </p>
+            </div>
+          </div>
+
+          <div class="process-step">
+            <div class="step-number">5</div>
+            <div class="step-content">
+              <h4>¡Tu casa es tuya!</h4>
+              <p>
+                Realizamos el desembolso y ya puedes disfrutar de tu nuevo
+                hogar.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Requirements Section -->
+    <section class="requirements-section">
+      <div class="landing-container">
+        <h2 class="section-title">Requisitos</h2>
+        <p class="section-subtitle">
+          Documentación necesaria para tu solicitud
+        </p>
+
+        <div class="requirements-grid">
+          <div class="requirement-card">
+            <div class="requirement-icon">
+              <i class="fas fa-id-card"></i>
+            </div>
+            <h4>Identificación</h4>
+            <p>Cédula de ciudadanía del titular y codeudor</p>
+          </div>
+
+          <div class="requirement-card">
+            <div class="requirement-icon">
+              <i class="fas fa-money-bill-wave"></i>
+            </div>
+            <h4>Ingresos</h4>
+            <p>
+              Certificado laboral, últimos 6 desprendibles o declaración de
+              renta
+            </p>
+          </div>
+
+          <div class="requirement-card">
+            <div class="requirement-icon">
+              <i class="fas fa-home"></i>
+            </div>
+            <h4>Propiedad</h4>
+            <p>Promesa de compraventa o carta de intención con inmobiliaria</p>
+          </div>
+
+          <div class="requirement-card">
+            <div class="requirement-icon">
+              <i class="fas fa-file-alt"></i>
+            </div>
+            <h4>Referencias</h4>
+            <p>
+              Referencias comerciales, familiares y certificado de tradición
+            </p>
+          </div>
+
+          <div class="requirement-card">
+            <div class="requirement-icon">
+              <i class="fas fa-university"></i>
+            </div>
+            <h4>Autorizaciones</h4>
+            <p>Consulta en centrales de riesgo y verificación de ingresos</p>
+          </div>
+
+          <div class="requirement-card">
+            <div class="requirement-icon">
+              <i class="fas fa-coins"></i>
+            </div>
+            <h4>Recursos</h4>
+            <p>Certificación de origen de recursos para cuota inicial</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits-section">
+      <div class="landing-container">
+        <h2 class="section-title">Beneficios exclusivos BANCOOP</h2>
+
+        <div class="benefits-list">
+          <div class="benefit-item">
+            <div class="benefit-icon">
+              <i class="fas fa-check-circle"></i>
+            </div>
+            <div class="benefit-text">
+              <h4>Seguro de vida incluido</h4>
+              <p>
+                Protección para tu familia en caso de fallecimiento o invalidez
+                total
+              </p>
+            </div>
+          </div>
+
+          <div class="benefit-item">
+            <div class="benefit-icon">
+              <i class="fas fa-check-circle"></i>
+            </div>
+            <div class="benefit-text">
+              <h4>Sin penalidad por pagos extraordinarios</h4>
+              <p>Puedes abonar a capital cuando quieras sin penalidades</p>
+            </div>
+          </div>
+
+          <div class="benefit-item">
+            <div class="benefit-icon">
+              <i class="fas fa-check-circle"></i>
+            </div>
+            <div class="benefit-text">
+              <h4>Asesoría jurídica incluida</h4>
+              <p>
+                Te acompañamos en todos los trámites legales sin costo adicional
+              </p>
+            </div>
+          </div>
+
+          <div class="benefit-item">
+            <div class="benefit-icon">
+              <i class="fas fa-check-circle"></i>
+            </div>
+            <div class="benefit-text">
+              <h4>Alianzas con constructoras</h4>
+              <p>
+                Descuentos especiales con los mejores proyectos inmobiliarios
+              </p>
+            </div>
+          </div>
+
+          <div class="benefit-item">
+            <div class="benefit-icon">
+              <i class="fas fa-check-circle"></i>
+            </div>
+            <div class="benefit-text">
+              <h4>Subsidios de vivienda</h4>
+              <p>
+                Te ayudamos a acceder a subsidios gubernamentales disponibles
+              </p>
+            </div>
+          </div>
+
+          <div class="benefit-item">
+            <div class="benefit-icon">
+              <i class="fas fa-check-circle"></i>
+            </div>
+            <div class="benefit-text">
+              <h4>Gestión integral</h4>
+              <p>
+                Nos encargamos de todos los trámites ante notaría y registro
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+      <div class="landing-container">
+        <h2>¡Tu hogar ideal te está esperando!</h2>
+        <p>
+          Da el primer paso hacia la independencia y estabilidad de tu familia
+        </p>
+        <a href="#solicitar" class="cta-button">Solicitar pre-aprobación</a>
+        <a href="tel:018000-00001" class="cta-button">Llamar: 018000-00001</a>
+        <br />
+        <a href="index.html" class="back-link">
+          <i class="fas fa-arrow-left"></i> Volver al inicio
+        </a>
+      </div>
+    </section>
+
+    <script>
+      function calculateMortgage() {
+        const propertyValue = parseFloat(
+          document.getElementById("property-value").value
+        );
+        const initialPayment =
+          parseFloat(document.getElementById("initial-payment").value) || 0;
+        const propertyType = document.getElementById("property-type").value;
+        const loanTermYears = parseInt(
+          document.getElementById("loan-term").value
+        );
+
+        if (!propertyValue || propertyValue < 100000000) {
+          alert("Por favor ingresa un valor mínimo de $100.000.000");
+          return;
+        }
+
+        const loanAmount = propertyValue - initialPayment;
+
+        if (loanAmount <= 0) {
+          alert(
+            "La cuota inicial no puede ser mayor o igual al valor de la vivienda"
+          );
+          return;
+        }
+
+        // Verificar financiación máxima según tipo
+        let maxFinancing;
+        let annualRate;
+
+        switch (propertyType) {
+          case "new":
+            maxFinancing = 0.8; // 80%
+            annualRate = 0.089; // UVR + 4.5% (aproximado 8.9% E.A.)
+            break;
+          case "used":
+            maxFinancing = 0.7; // 70%
+            annualRate = 0.092; // UVR + 4.8% (aproximado 9.2% E.A.)
+            break;
+          case "construction":
+            maxFinancing = 0.7; // 70%
+            annualRate = 0.094; // UVR + 5.0% (aproximado 9.4% E.A.)
+            break;
+          case "leasing":
+            maxFinancing = 0.8; // 80%
+            annualRate = 0.098; // DTF + 6.0% (aproximado 9.8% E.A.)
+            break;
+          default:
+            maxFinancing = 0.8;
+            annualRate = 0.089;
+        }
+
+        const maxLoanAmount = propertyValue * maxFinancing;
+
+        if (loanAmount > maxLoanAmount) {
+          alert(
+            `El monto a financiar no puede superar $${maxLoanAmount.toLocaleString(
+              "es-CO"
+            )} (${maxFinancing * 100}% del valor de la propiedad)`
+          );
+          return;
+        }
+
+        const monthlyRate = annualRate / 12;
+        const loanTermMonths = loanTermYears * 12;
+
+        // Cálculo de cuota usando fórmula de cuota fija
+        const monthlyPayment =
+          (loanAmount *
+            (monthlyRate * Math.pow(1 + monthlyRate, loanTermMonths))) /
+          (Math.pow(1 + monthlyRate, loanTermMonths) - 1);
+        const totalPayment = monthlyPayment * loanTermMonths;
+
+        document.getElementById(
+          "loan-amount"
+        ).textContent = `$${loanAmount.toLocaleString("es-CO")}`;
+        document.getElementById(
+          "monthly-payment"
+        ).textContent = `$${monthlyPayment.toLocaleString("es-CO")}`;
+        document.getElementById(
+          "total-payment"
+        ).textContent = `$${totalPayment.toLocaleString("es-CO")}`;
+        document.getElementById("income-percentage").textContent = "30% máx.";
+
+        document.getElementById("result").style.display = "block";
+      }
+    </script>
+    <script src="script.js"></script>
+  </body>
+</html>

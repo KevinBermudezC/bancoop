@@ -21,10 +21,10 @@
           </div>
           <nav class="nav-menu">
             <ul>
-              <li><a href="#creditos">Créditos</a></li>
-              <li><a href="#ahorros">Ahorros</a></li>
-              <li><a href="#leasing">Leasing</a></li>
-              <li><a href="#servicio">Servicio al Cliente</a></li>
+              <li><a href="creditos.html">Créditos</a></li>
+              <li><a href="ahorros.html">Ahorros</a></li>
+              <li><a href="leasing.html">Leasing</a></li>
+              <li><a href="servicio-cliente.html">Servicio al Cliente</a></li>
               <li><a href="#registro" class="btn-register">Registrarse</a></li>
             </ul>
           </nav>
@@ -59,11 +59,13 @@
                   </div>
                   <div class="form-group">
                     <label for="account-type">Tipo:</label>
-                    <select id="account-type" name="account-type" required>
-                      <option value="">Selecciona</option>
-                      <option value="personal">Personal</option>
-                      <option value="empresarial">Empresarial</option>
-                    </select>
+                    <input
+                      type="text"
+                      id="type"
+                      name="type"
+                      placeholder="Tipo de cuenta"
+                      required
+                    />
                   </div>
                   <div class="form-group">
                     <label for="password">Clave:</label>
@@ -106,20 +108,25 @@
                 <!-- Top Products -->
                 <div class="top-products">
                   <div class="product-item">
-                    <h3>SOLICITA NUESTROS PRODUCTOS</h3>
+                    <h3>TARJETAS DE CRÉDITO</h3>
                     <div class="product-content">
                       <div class="credit-card-display">
                         <div class="card-visual">
                           <div class="card-number">1234 5678 9012 3456</div>
-                          <div class="card-holder">John Doe</div>
-                          <div class="card-exp">12/25</div>
+                          <div class="card-holder">BANCOOP</div>
+                          <div class="card-exp">12/27</div>
                         </div>
                       </div>
                       <p>
-                        Espera, una ingeniería de ser estás grandes, te envió
-                        solicitar una es magnifique con tu tipos al objeto pagar
-                        una actualizar aunque pero es utilizado.
+                        Descubre nuestras tarjetas de crédito con beneficios
+                        exclusivos. Obtén hasta 50 días sin intereses, cashback
+                        en tus compras favoritas, acceso a salas VIP en
+                        aeropuertos y seguros de viaje incluidos. Ideal para
+                        construir tu historial crediticio.
                       </p>
+                      <a href="tarjetas-credito.html" class="btn-more-info"
+                        >Más información</a
+                      >
                     </div>
                   </div>
 
@@ -130,10 +137,15 @@
                         <i class="fas fa-graduation-cap"></i>
                       </div>
                       <p>
-                        Espera, una ingeniería de ser estás grandes, te envió
-                        solicitar una es magnifique con tu tipos al objeto pagar
-                        una actualizar aunque pero es utilizado.
+                        Cuenta especial para estudiantes con tasas
+                        preferenciales y sin costos de manejo. Ahorra para tu
+                        futuro académico con beneficios exclusivos: exención de
+                        cuotas de manejo, descuentos en librerías y papelerías,
+                        además de asesoría financiera personalizada.
                       </p>
+                      <a href="ahorro-estudiantil.html" class="btn-more-info"
+                        >Más información</a
+                      >
                     </div>
                   </div>
                 </div>
@@ -147,10 +159,15 @@
                         <i class="fas fa-car"></i>
                       </div>
                       <p>
-                        Espera, una ingeniería de ser estás grandes, te envió
-                        solicitar una es magnifique con tu tipos al objeto pagar
-                        una actualizar aunque pero es utilizado.
+                        Financia tu vehículo nuevo o usado con tasas
+                        competitivas y hasta 84 meses para pagar. Incluye seguro
+                        todo riesgo, SOAT y trámites de matrícula. Aprobación
+                        rápida en 24 horas con documentación mínima. Para
+                        carros, motos y vehículos comerciales.
                       </p>
+                      <a href="credito-vehiculos.html" class="btn-more-info"
+                        >Más información</a
+                      >
                     </div>
                   </div>
 
@@ -161,10 +178,15 @@
                         <i class="fas fa-home"></i>
                       </div>
                       <p>
-                        Espera, una ingeniería de ser estás grandes, te envió
-                        solicitar una es magnifique con tu tipos al objeto pagar
-                        una actualizar aunque pero es utilizado.
+                        Haz realidad el sueño de tu casa propia con nuestro
+                        crédito hipotecario. Financia hasta el 80% del valor de
+                        tu vivienda con tasas fijas o variables, plazo hasta 20
+                        años y cuota inicial desde el 20%. Incluye avalúo
+                        gratuito y asesoría legal especializada.
                       </p>
+                      <a href="credito-hipotecario.html" class="btn-more-info"
+                        >Más información</a
+                      >
                     </div>
                   </div>
                 </div>
@@ -223,16 +245,24 @@
                     required
                   />
                 </div>
-                <button type="submit" class="btn btn-secondary">
-                  Registrarse
-                </button>
-                <button
-                  type="button"
-                  class="btn btn-back"
-                  onclick="showMainSection()"
-                >
-                  Volver
-                </button>
+
+                <div class="form-buttons">
+                  <button
+                    type="submit"
+                    class="btn btn-primary btn-register-main"
+                  >
+                    <i class="fas fa-user-plus"></i>
+                    REGISTRARSE
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-secondary btn-back"
+                    onclick="showMainSection()"
+                  >
+                    <i class="fas fa-arrow-left"></i>
+                    Volver
+                  </button>
+                </div>
               </form>
             </div>
           </div>

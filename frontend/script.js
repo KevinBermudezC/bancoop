@@ -61,9 +61,25 @@ document.addEventListener("DOMContentLoaded", function () {
       showNotification("Iniciando sesión...", "info");
 
       setTimeout(() => {
-        showNotification("¡Bienvenido a BANCOOP!", "success");
-        // Here you would typically redirect to the dashboard
-        console.log("Login attempt:", { account, accountType });
+        // Simular datos de usuario (en una app real, estos vendrían del backend)
+        const userData = getUserData(account, accountType, password);
+
+        if (userData) {
+          // Guardar datos del usuario en localStorage
+          localStorage.setItem("userData", JSON.stringify(userData));
+
+          showNotification("¡Bienvenido a BANCOOP!", "success");
+
+          // Redirigir al dashboard después de un breve delay
+          setTimeout(() => {
+            window.location.href = "dashboard.html";
+          }, 1000);
+        } else {
+          showNotification(
+            "Credenciales incorrectas. Intenta de nuevo.",
+            "error"
+          );
+        }
       }, 1500);
     });
   }

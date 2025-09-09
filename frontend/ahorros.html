@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ahorros - BANCOOP</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="ahorros-landing">
+    <!-- Hero Section -->
+    <section class="landing-hero">
+      <div class="landing-container">
+        <div class="hero-content">
+          <h1><i class="fas fa-piggy-bank"></i> Ahorros BANCOOP</h1>
+          <p>
+            Construye tu futuro financiero con nuestros productos de ahorro
+            diseñados para cada etapa de tu vida
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Products Overview -->
+    <section class="products-overview">
+      <div class="landing-container">
+        <h2 class="section-title">Nuestros Productos de Ahorro</h2>
+        <p class="section-subtitle">
+          Elige la opción que mejor se adapte a tus metas financieras
+        </p>
+
+        <div class="products-grid">
+          <div class="product-card">
+            <div class="product-icon">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+            <h3>Ahorro Estudiantil</h3>
+            <p>
+              Cuenta especial para estudiantes con tasas preferenciales y
+              beneficios exclusivos.
+            </p>
+            <ul class="product-features">
+              <li>Tasa preferencial 4.5% E.A.</li>
+              <li>Sin cuota de manejo</li>
+              <li>Descuentos académicos</li>
+            </ul>
+            <a href="ahorro-estudiantil.html" class="btn-product"
+              >Ver detalles</a
+            >
+          </div>
+
+          <div class="product-card">
+            <div class="product-icon">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <h3>Ahorro Tradicional</h3>
+            <p>
+              Cuenta de ahorros clásica con disponibilidad inmediata y
+              rentabilidad garantizada.
+            </p>
+            <ul class="product-features">
+              <li>Tasa 3.5% E.A.</li>
+              <li>Disponibilidad inmediata</li>
+              <li>Tarjeta débito gratis</li>
+            </ul>
+            <a href="#tradicional" class="btn-product">Ver detalles</a>
+          </div>
+
+          <div class="product-card">
+            <div class="product-icon">
+              <i class="fas fa-calendar-alt"></i>
+            </div>
+            <h3>Ahorro Programado</h3>
+            <p>
+              Programa tus ahorros automáticamente y alcanza tus metas con
+              disciplina.
+            </p>
+            <ul class="product-features">
+              <li>Débito automático</li>
+              <li>Metas personalizadas</li>
+              <li>Tasa 4.0% E.A.</li>
+            </ul>
+            <a href="#programado" class="btn-product">Ver detalles</a>
+          </div>
+
+          <div class="product-card">
+            <div class="product-icon">
+              <i class="fas fa-lock"></i>
+            </div>
+            <h3>CDT - Certificado de Depósito</h3>
+            <p>
+              Invierte a término fijo y obtén las mejores tasas de rentabilidad
+              del mercado.
+            </p>
+            <ul class="product-features">
+              <li>Tasas hasta 6.5% E.A.</li>
+              <li>Plazos desde 90 días</li>
+              <li>Renovación automática</li>
+            </ul>
+            <a href="#cdt" class="btn-product">Ver detalles</a>
+          </div>
+
+          <div class="product-card">
+            <div class="product-icon">
+              <i class="fas fa-baby"></i>
+            </div>
+            <h3>Ahorro Infantil</h3>
+            <p>
+              Enseña a tus hijos el valor del ahorro con una cuenta diseñada
+              especialmente para menores.
+            </p>
+            <ul class="product-features">
+              <li>Desde $10.000</li>
+              <li>Educación financiera</li>
+              <li>Sin cuota de manejo</li>
+            </ul>
+            <a href="#infantil" class="btn-product">Ver detalles</a>
+          </div>
+
+          <div class="product-card">
+            <div class="product-icon">
+              <i class="fas fa-umbrella"></i>
+            </div>
+            <h3>Ahorro Pensional</h3>
+            <p>
+              Complementa tu pensión con un ahorro voluntario que te dará
+              tranquilidad en el futuro.
+            </p>
+            <ul class="product-features">
+              <li>Beneficios tributarios</li>
+              <li>Retiros programados</li>
+              <li>Asesoría especializada</li>
+            </ul>
+            <a href="#pensional" class="btn-product">Ver detalles</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Savings Calculator -->
+    <section class="calculator-section">
+      <div class="landing-container">
+        <h2 class="section-title">Calcula tu ahorro</h2>
+        <p class="section-subtitle">
+          Descubre cuánto puedes ahorrar con nuestros productos
+        </p>
+
+        <div class="calculator-container">
+          <div class="calculator-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="monthly-amount">Ahorro mensual ($)</label>
+                <input
+                  type="number"
+                  id="monthly-amount"
+                  placeholder="Ej: 200000"
+                  min="50000"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="savings-type">Tipo de ahorro</label>
+                <select id="savings-type">
+                  <option value="tradicional">Ahorro Tradicional (3.5%)</option>
+                  <option value="programado">Ahorro Programado (4.0%)</option>
+                  <option value="estudiantil">Ahorro Estudiantil (4.5%)</option>
+                  <option value="cdt">CDT (6.5%)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="time-period">Tiempo de ahorro</label>
+                <select id="time-period">
+                  <option value="12">1 año</option>
+                  <option value="24">2 años</option>
+                  <option value="36">3 años</option>
+                  <option value="60">5 años</option>
+                  <option value="120">10 años</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="goal-amount">Meta de ahorro ($) - Opcional</label>
+                <input
+                  type="number"
+                  id="goal-amount"
+                  placeholder="Ej: 20000000"
+                />
+              </div>
+            </div>
+
+            <button
+              type="button"
+              class="calculate-btn"
+              onclick="calculateSavings()"
+            >
+              Calcular ahorro
+            </button>
+
+            <div id="result" class="result">
+              <h4 style="text-align: center; margin-bottom: 20px">
+                Resultado de tu ahorro:
+              </h4>
+              <div class="result-grid">
+                <div class="result-item">
+                  <div>Total ahorrado</div>
+                  <div class="result-value" id="total-saved"></div>
+                </div>
+                <div class="result-item">
+                  <div>Intereses ganados</div>
+                  <div class="result-value" id="interest-earned"></div>
+                </div>
+                <div class="result-item">
+                  <div>Tiempo para meta</div>
+                  <div class="result-value" id="time-to-goal"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits-section">
+      <div class="landing-container">
+        <h2 class="section-title">Beneficios de ahorrar con BANCOOP</h2>
+
+        <div class="benefits-grid">
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <i class="fas fa-percentage"></i>
+            </div>
+            <h4>Mejores Tasas</h4>
+            <p>
+              Tasas de rentabilidad superiores al promedio del mercado
+              financiero.
+            </p>
+          </div>
+
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <i class="fas fa-shield-alt"></i>
+            </div>
+            <h4>Seguridad Total</h4>
+            <p>
+              Tus ahorros están protegidos por el Fondo de Garantías FOGAFIN
+              hasta $50 millones.
+            </p>
+          </div>
+
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <i class="fas fa-mobile-alt"></i>
+            </div>
+            <h4>Banca Digital</h4>
+            <p>
+              Consulta y maneja tus ahorros 24/7 desde nuestra app móvil y banca
+              en línea.
+            </p>
+          </div>
+
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <i class="fas fa-hand-holding-usd"></i>
+            </div>
+            <h4>Sin Costos Ocultos</h4>
+            <p>
+              Sin cuotas de manejo en productos seleccionados y total
+              transparencia en tarifas.
+            </p>
+          </div>
+
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <h4>Educación Financiera</h4>
+            <p>
+              Talleres gratuitos y herramientas para mejorar tu cultura
+              financiera.
+            </p>
+          </div>
+
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <i class="fas fa-users"></i>
+            </div>
+            <h4>Asesoría Personal</h4>
+            <p>
+              Asesores especializados te ayudarán a elegir el producto ideal
+              para ti.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tips Section -->
+    <section class="tips-section">
+      <div class="landing-container">
+        <h2 class="section-title">Consejos para ahorrar mejor</h2>
+
+        <div class="tips-grid">
+          <div class="tip-card">
+            <div class="tip-number">1</div>
+            <h4>Define metas claras</h4>
+            <p>
+              Establece objetivos específicos y fechas límite para mantener la
+              motivación.
+            </p>
+          </div>
+
+          <div class="tip-card">
+            <div class="tip-number">2</div>
+            <h4>Automatiza tus ahorros</h4>
+            <p>
+              Programa débitos automáticos para ahorrar antes de gastar tu
+              dinero.
+            </p>
+          </div>
+
+          <div class="tip-card">
+            <div class="tip-number">3</div>
+            <h4>Revisa tus gastos</h4>
+            <p>
+              Analiza mensualmente en qué gastas y identifica oportunidades de
+              ahorro.
+            </p>
+          </div>
+
+          <div class="tip-card">
+            <div class="tip-number">4</div>
+            <h4>Diversifica tus ahorros</h4>
+            <p>
+              Combina diferentes productos según tus necesidades de liquidez y
+              rentabilidad.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+      <div class="landing-container">
+        <h2>¡Comienza a ahorrar hoy!</h2>
+        <p>
+          Da el primer paso hacia tu libertad financiera con nuestros productos
+          de ahorro
+        </p>
+        <a href="#abrir-cuenta" class="cta-button">Abrir cuenta de ahorros</a>
+        <a href="tel:018000-00001" class="cta-button">Llamar: 018000-00001</a>
+        <br />
+        <a href="index.html" class="back-link">
+          <i class="fas fa-arrow-left"></i> Volver al inicio
+        </a>
+      </div>
+    </section>
+
+    <script>
+      function calculateSavings() {
+        const monthlyAmount = parseFloat(
+          document.getElementById("monthly-amount").value
+        );
+        const savingsType = document.getElementById("savings-type").value;
+        const timePeriod = parseInt(
+          document.getElementById("time-period").value
+        );
+        const goalAmount =
+          parseFloat(document.getElementById("goal-amount").value) || null;
+
+        if (!monthlyAmount || monthlyAmount < 50000) {
+          alert("Por favor ingresa un monto mínimo de $50.000");
+          return;
+        }
+
+        // Tasas según tipo de ahorro
+        let annualRate;
+        switch (savingsType) {
+          case "tradicional":
+            annualRate = 0.035; // 3.5%
+            break;
+          case "programado":
+            annualRate = 0.04; // 4.0%
+            break;
+          case "estudiantil":
+            annualRate = 0.045; // 4.5%
+            break;
+          case "cdt":
+            annualRate = 0.065; // 6.5%
+            break;
+          default:
+            annualRate = 0.035;
+        }
+
+        const monthlyRate = annualRate / 12;
+        let totalSaved = 0;
+        const totalDeposits = monthlyAmount * timePeriod;
+
+        // Cálculo de interés compuesto
+        for (let i = 0; i < timePeriod; i++) {
+          totalSaved = (totalSaved + monthlyAmount) * (1 + monthlyRate);
+        }
+
+        const interestEarned = totalSaved - totalDeposits;
+
+        // Calcular tiempo para alcanzar meta si se especifica
+        let timeToGoal = "-";
+        if (goalAmount) {
+          let months = 0;
+          let accumulated = 0;
+          while (accumulated < goalAmount && months < 600) {
+            // máximo 50 años
+            accumulated = (accumulated + monthlyAmount) * (1 + monthlyRate);
+            months++;
+          }
+          if (accumulated >= goalAmount) {
+            const years = Math.floor(months / 12);
+            const remainingMonths = months % 12;
+            timeToGoal =
+              years > 0
+                ? `${years} años ${remainingMonths} meses`
+                : `${months} meses`;
+          } else {
+            timeToGoal = "Más de 50 años";
+          }
+        }
+
+        document.getElementById(
+          "total-saved"
+        ).textContent = `$${totalSaved.toLocaleString("es-CO")}`;
+        document.getElementById(
+          "interest-earned"
+        ).textContent = `$${interestEarned.toLocaleString("es-CO")}`;
+        document.getElementById("time-to-goal").textContent = timeToGoal;
+
+        document.getElementById("result").style.display = "block";
+      }
+    </script>
+    <script src="script.js"></script>
+  </body>
+</html>
