@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BANCOOP - Te ayuda a alcanzar tus metas</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <div class="container">
+        <div class="header-content">
+          <div class="logo">
+            <h1>BANCOOP</h1>
+            <span class="tagline">Te ayuda a alcanzar tus metas</span>
+          </div>
+          <nav class="nav-menu">
+            <ul>
+              <li><a href="#creditos">Créditos</a></li>
+              <li><a href="#ahorros">Ahorros</a></li>
+              <li><a href="#leasing">Leasing</a></li>
+              <li><a href="#servicio">Servicio al Cliente</a></li>
+              <li><a href="#registro" class="btn-register">Registrarse</a></li>
+            </ul>
+          </nav>
+          <div class="mobile-menu-toggle">
+            <i class="fas fa-bars"></i>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="main-container">
+        <!-- Main Layout Section -->
+        <section class="main-layout-section">
+          <div class="main-layout">
+            <!-- Left Side - Login Form -->
+            <div class="left-section">
+              <!-- Login Form -->
+              <div class="login-card">
+                <h2>INGRESA A TU CUENTA</h2>
+                <form>
+                  <div class="form-group">
+                    <label for="account">Cuenta:</label>
+                    <input
+                      type="text"
+                      id="account"
+                      name="account"
+                      placeholder="Número de cuenta"
+                      required
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="account-type">Tipo:</label>
+                    <select id="account-type" name="account-type" required>
+                      <option value="">Selecciona</option>
+                      <option value="personal">Personal</option>
+                      <option value="empresarial">Empresarial</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="password">Clave:</label>
+                    <input
+                      type="password"
+                      id="password"
+                      name="password"
+                      placeholder="Ingresa Nombre"
+                      required
+                    />
+                  </div>
+                  <button type="submit" class="btn btn-login">Ingresar</button>
+                </form>
+              </div>
+
+              <!-- Transacciones Section -->
+              <div class="transacciones-card">
+                <h3>TRANSACCIONES</h3>
+                <ul class="transacciones-list">
+                  <li class="transaccion-item">Banca personal</li>
+                  <li class="transaccion-item">Banca empresarial</li>
+                  <li class="transaccion-item">Banca seguros</li>
+                  <li class="transaccion-item">Pago de facturas</li>
+                </ul>
+              </div>
+
+              <!-- Tarjetas de Crédito Section -->
+              <div class="tarjetas-card">
+                <h3>TARJETAS DE CRÉDITO</h3>
+                <ul class="tarjetas-list">
+                  <li class="tarjeta-item">Credi Visa</li>
+                  <li class="tarjeta-item">Credi Mastercard</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Right Side - Products -->
+            <div class="right-section">
+              <div class="product-sections">
+                <!-- Top Products -->
+                <div class="top-products">
+                  <div class="product-item">
+                    <h3>SOLICITA NUESTROS PRODUCTOS</h3>
+                    <div class="product-content">
+                      <div class="credit-card-display">
+                        <div class="card-visual">
+                          <div class="card-number">1234 5678 9012 3456</div>
+                          <div class="card-holder">John Doe</div>
+                          <div class="card-exp">12/25</div>
+                        </div>
+                      </div>
+                      <p>
+                        Espera, una ingeniería de ser estás grandes, te envió
+                        solicitar una es magnifique con tu tipos al objeto pagar
+                        una actualizar aunque pero es utilizado.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="product-item">
+                    <h3>AHORRO ESTUDIANTIL</h3>
+                    <div class="product-content">
+                      <div class="savings-visual">
+                        <i class="fas fa-graduation-cap"></i>
+                      </div>
+                      <p>
+                        Espera, una ingeniería de ser estás grandes, te envió
+                        solicitar una es magnifique con tu tipos al objeto pagar
+                        una actualizar aunque pero es utilizado.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Bottom Products -->
+                <div class="bottom-products">
+                  <div class="product-item">
+                    <h3>CRÉDITO VEHÍCULOS</h3>
+                    <div class="product-content">
+                      <div class="vehicle-visual">
+                        <i class="fas fa-car"></i>
+                      </div>
+                      <p>
+                        Espera, una ingeniería de ser estás grandes, te envió
+                        solicitar una es magnifique con tu tipos al objeto pagar
+                        una actualizar aunque pero es utilizado.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="product-item">
+                    <h3>CRÉDITO HIPOTECARIO</h3>
+                    <div class="product-content">
+                      <div class="mortgage-visual">
+                        <i class="fas fa-home"></i>
+                      </div>
+                      <p>
+                        Espera, una ingeniería de ser estás grandes, te envió
+                        solicitar una es magnifique con tu tipos al objeto pagar
+                        una actualizar aunque pero es utilizado.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Registration Section (Hidden by default) -->
+        <section
+          class="registration-section"
+          id="registro"
+          style="display: none"
+        >
+          <div class="registration-container">
+            <div class="form-card registration-form">
+              <h2>Regístrate en BANCOOP</h2>
+              <form>
+                <div class="form-group">
+                  <label for="full-name">Nombre completo:</label>
+                  <input
+                    type="text"
+                    id="full-name"
+                    name="full-name"
+                    placeholder="Tu nombre completo"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="email">Correo electrónico:</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="tu@email.com"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="document">Número de documento:</label>
+                  <input
+                    type="text"
+                    id="document"
+                    name="document"
+                    placeholder="Número de identificación"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="new-password">Clave:</label>
+                  <input
+                    type="password"
+                    id="new-password"
+                    name="new-password"
+                    placeholder="Crea tu clave"
+                    required
+                  />
+                </div>
+                <button type="submit" class="btn btn-secondary">
+                  Registrarse
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-back"
+                  onclick="showMainSection()"
+                >
+                  Volver
+                </button>
+              </form>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>Contáctanos</h3>
+            <ul class="contact-list">
+              <li>
+                <i class="fas fa-phone"></i>
+                <span>Línea gratuita: 018000-00001</span>
+              </li>
+              <li>
+                <i class="fas fa-envelope"></i>
+                <span>contacto@bancoop.com</span>
+              </li>
+              <li>
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Oficinas en todo el país</span>
+              </li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h3>Productos</h3>
+            <ul>
+              <li><a href="#creditos">Créditos</a></li>
+              <li><a href="#ahorros">Ahorros</a></li>
+              <li><a href="#leasing">Leasing</a></li>
+              <li><a href="#seguros">Seguros</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h3>Servicios</h3>
+            <ul>
+              <li><a href="#banca-online">Banca en línea</a></li>
+              <li><a href="#app-movil">App móvil</a></li>
+              <li><a href="#cajeros">Cajeros automáticos</a></li>
+              <li><a href="#soporte">Soporte 24/7</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h3>Síguenos</h3>
+            <div class="social-links">
+              <a href="#" class="social-link">
+                <i class="fab fa-facebook"></i>
+              </a>
+              <a href="#" class="social-link">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="#" class="social-link">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="#" class="social-link">
+                <i class="fab fa-linkedin"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>
+            &copy; 2024 BANCOOP - Banco Cooperativo. Todos los derechos
+            reservados.
+          </p>
+          <p>Vigilado por la Superintendencia Financiera</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
