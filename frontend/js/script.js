@@ -91,13 +91,13 @@ document.addEventListener("DOMContentLoaded", function () {
           localStorage.setItem("userData", JSON.stringify(userData));
           console.log("💾 Datos guardados en localStorage:", userData);
 
-          showNotification("¡Bienvenido a BANCOOP!", "success");
+          showNotification(`¡Bienvenido ${response.data.nombre} ${response.data.apellido}! Iniciando sesión...`, "success");
 
-          // Redirigir al dashboard después de un breve delay
+          // Redirigir al dashboard después de un delay más largo para que el usuario vea el mensaje
           setTimeout(() => {
             console.log("🔄 Redirigiendo al dashboard...");
             window.location.href = "dashboard.html";
-          }, 1000);
+          }, 2000);
         } else {
           console.log("❌ Login falló:", response);
           showNotification("Error en el login. Intenta de nuevo.", "error");
@@ -199,7 +199,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (response.success) {
           showNotification(
-            "¡Cuenta creada exitosamente! Ya puedes iniciar sesión.",
+            `¡Cuenta creada exitosamente para ${response.data.nombre} ${response.data.apellido}! Ya puedes iniciar sesión.`,
             "success"
           );
           registrationForm.reset();
@@ -207,7 +207,7 @@ document.addEventListener("DOMContentLoaded", function () {
           // Cambiar a la sección de login después del registro exitoso
           setTimeout(() => {
             showMainSection();
-          }, 2000);
+          }, 3000);
         }
       } catch (error) {
         console.error("Error en registro:", error);
@@ -286,7 +286,7 @@ document.addEventListener("DOMContentLoaded", function () {
             border-radius: 0.75rem;
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
             backdrop-filter: blur(10px);
-            animation: slideInRight 1s ease-out;
+            animation: slideInRight 0.5s ease-out;
             border-left: 4px solid;
             color: white;
         `;
@@ -294,16 +294,16 @@ document.addEventListener("DOMContentLoaded", function () {
     // Set colors based on type
     switch (type) {
       case "success":
-        notification.style.background = "rgba(16, 185, 129, 0.9)";
+        notification.style.background = "rgba(16, 185, 129, 0.95)";
         notification.style.borderLeftColor = "#10b981";
         break;
       case "error":
-        notification.style.background = "rgba(239, 68, 68, 0.9)";
+        notification.style.background = "rgba(239, 68, 68, 0.95)";
         notification.style.borderLeftColor = "#ef4444";
         break;
       case "info":
       default:
-        notification.style.background = "rgba(59, 130, 246, 0.9)";
+        notification.style.background = "rgba(59, 130, 246, 0.95)";
         notification.style.borderLeftColor = "#3b82f6";
         break;
     }
@@ -311,17 +311,31 @@ document.addEventListener("DOMContentLoaded", function () {
     // Add close functionality
     const closeButton = notification.querySelector(".notification-close");
     closeButton.addEventListener("click", () => {
-      notification.style.animation = "slideOutRight 1s ease-in forwards";
-      setTimeout(() => notification.remove(), 300);
+      notification.style.animation = "slideOutRight 0.5s ease-in forwards";
+      setTimeout(() => notification.remove(), 500);
     });
 
-    // Auto-remove after 5 seconds
+    // Auto-remove based on type - diferentes duraciones según el tipo
+    let autoCloseTime;
+    switch (type) {
+      case "success":
+        autoCloseTime = 8000; // 8 segundos para mensajes de éxito
+        break;
+      case "error":
+        autoCloseTime = 10000; // 10 segundos para errores
+        break;
+      case "info":
+      default:
+        autoCloseTime = 4000; // 4 segundos para información
+        break;
+    }
+
     setTimeout(() => {
       if (notification.parentNode) {
-        notification.style.animation = "slideOutRight 1s ease-in forwards";
-        setTimeout(() => notification.remove(), 300);
+        notification.style.animation = "slideOutRight 0.5s ease-in forwards";
+        setTimeout(() => notification.remove(), 500);
       }
-    }, 5000);
+    }, autoCloseTime);
 
     document.body.appendChild(notification);
   }
@@ -379,6 +393,7 @@ document.addEventListener("DOMContentLoaded", function () {
             .notification-content span {
                 flex: 1;
                 font-weight: 500;
+                line-height: 1.4;
             }
             
             .notification-close {
@@ -386,17 +401,43 @@ document.addEventListener("DOMContentLoaded", function () {
                 border: none;
                 color: white;
                 cursor: pointer;
-                padding: 0.25rem;
-                border-radius: 0.25rem;
+                padding: 0.5rem;
+                border-radius: 0.375rem;
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 flex-shrink: 0;
-                transition: background-color 0.2s ease;
+                transition: all 0.2s ease;
+                font-size: 0.875rem;
             }
             
             .notification-close:hover {
-                background: rgba(255, 255, 255, 0.2);
+                background: rgba(255, 255, 255, 0.25);
+                transform: scale(1.1);
+            }
+            
+            .notification-close:active {
+                transform: scale(0.95);
+            }
+            
+            /* Animación de pulso para mensajes importantes */
+            .notification-success {
+                animation: slideInRight 0.5s ease-out, pulseSuccess 2s ease-in-out 0.5s;
+            }
+            
+            .notification-error {
+                animation: slideInRight 0.5s ease-out, shakeError 0.5s ease-in-out 0.5s;
+            }
+            
+            @keyframes pulseSuccess {
+                0%, 100% { transform: scale(1); }
+                50% { transform: scale(1.02); }
+            }
+            
+            @keyframes shakeError {
+                0%, 100% { transform: translateX(0); }
+                25% { transform: translateX(-5px); }
+                75% { transform: translateX(5px); }
             }
         `;
     document.head.appendChild(style);
